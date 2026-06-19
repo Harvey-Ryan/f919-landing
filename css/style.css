@@ -1,0 +1,222 @@
+/* ================================================================
+   VARIABLES
+================================================================= */
+:root {
+  --bg:         #010408;
+  --space-near: #06111e;
+}
+
+/* ================================================================
+   RESET
+================================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: rgba(255, 255, 255, 0.82);
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a   { color: inherit; }
+
+/* ================================================================
+   BACKGROUND
+================================================================= */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 140% 70% at 50% -5%,
+    var(--space-near) 0%,
+    var(--bg) 55%,
+    #000 100%
+  );
+  pointer-events: none;
+}
+
+/* ================================================================
+   STAR FIELD
+================================================================= */
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  pointer-events: none;
+  animation: twinkle var(--d, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: var(--o, 0.55); }
+  50%       { opacity: calc(var(--o, 0.55) * 0.12); }
+}
+
+/* ================================================================
+   LANDING LAYOUT
+================================================================= */
+.landing {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  gap: 3rem;
+}
+
+/* ================================================================
+   HEADER
+================================================================= */
+.landing__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.landing__logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.landing__title {
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1;
+}
+
+.landing__tagline {
+  font-size: 0.6rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ================================================================
+   TILES
+================================================================= */
+.landing__tiles {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  width: 280px;
+  padding: 2.25rem 1.75rem;
+  background: rgba(30, 32, 38, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  gap: 0.8rem;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.10),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.55),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  transition:
+    background   0.25s ease,
+    border-color 0.25s ease,
+    transform    0.25s ease,
+    box-shadow   0.25s ease;
+}
+
+.tile:hover {
+  background: rgba(40, 45, 55, 0.75);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-4px);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.13),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.55),
+    0 16px 48px rgba(0, 0, 0, 0.65);
+}
+
+.tile__icon {
+  width: 44px;
+  height: 44px;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.25s ease;
+}
+
+.tile:hover .tile__icon {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tile__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tile__heading {
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: 0.07em;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.15;
+}
+
+.tile__body {
+  font-size: 0.78rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: 0.02em;
+}
+
+.tile__cta {
+  margin-top: 0.4rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  transition: color 0.2s ease;
+}
+
+.tile:hover .tile__cta {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ================================================================
+   MOBILE
+================================================================= */
+@media (max-width: 640px) {
+  .landing__title {
+    font-size: 2.6rem;
+  }
+
+  .tile {
+    width: 100%;
+    max-width: 340px;
+  }
+}
