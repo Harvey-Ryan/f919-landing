@@ -179,6 +179,12 @@ body::before {
   height: 100%;
 }
 
+img.tile__icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
 .tile__heading {
   font-family: 'Bebas Neue', 'Impact', sans-serif;
   font-size: 1.55rem;
