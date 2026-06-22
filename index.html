@@ -29,6 +29,10 @@
 
   <main class="landing">
 
+    <header class="landing__header">
+      <img class="landing__logo" src="assets/images/919 Logos/919LogoBasicRSI.png" alt="Fleet 919" />
+    </header>
+
     <div class="landing__tiles">
 
       <a class="tile" href="https://join.f919.org">
@@ -44,7 +48,13 @@
       </a>
 
       <a class="tile" href="https://asop.f919.org">
-        <img class="tile__icon" src="assets/images/919 Logos/919LogoBasicRSI.png" alt="Fleet 919" aria-hidden="true" />
+        <div class="tile__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M6 8.5L9.5 12L6 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 15.5H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
         <h2 class="tile__heading">Member Login</h2>
         <p class="tile__body">Access the ASOP Terminal, fleet management, events, and more.</p>
         <span class="tile__cta">Enter &rarr;</span>
