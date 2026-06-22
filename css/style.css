@@ -99,8 +99,8 @@ body::before {
 }
 
 .landing__logo {
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: 280px;
   object-fit: contain;
   border-radius: 50%;
   filter:
